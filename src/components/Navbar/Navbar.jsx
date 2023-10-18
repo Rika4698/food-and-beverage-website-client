@@ -1,10 +1,22 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable no-undef */
 import { NavLink } from "react-router-dom";
 import { IoLogInOutline } from "react-icons/io5";
 
 
+
+
+
+
+
+
 const Navbar = () => {
+   
+
+   
     return (
         <div>
+            
            <div className="navbar bg-sky-100 ">
   <div className="navbar-start">
     <div className="dropdown">
@@ -34,7 +46,7 @@ isPending ? "pending" : isActive ? "text-blue-800 font-bold text-2xl " : "font-s
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="flex gap-8 ">
-    <li><NavLink to="/"
+    <li><NavLink to='/'
 className={({ isActive, isPending }) =>
 isPending ? "pending" : isActive ? "text-blue-800 font-bold text-4xl " : "font-semibold text-emerald-950 text-xl"
                 }>Home</NavLink></li>
@@ -49,12 +61,14 @@ isPending ? "pending" : isActive ? "text-blue-800 font-bold text-4xl " : "font-s
      
     </ul>
   </div>
-  <div className="navbar-end">
+  <div className="navbar-end dark:bg-black ">
   <NavLink to='/login'>
   
     <button className="btn text-white bg-violet-400 w-24 lg:mr-8 lg:w-36">   <IoLogInOutline className="hidden lg:text-2xl lg:flex"></IoLogInOutline>
         <span className="text-lg">Login</span></button>
     </NavLink>
+    
+        
   </div>
 </div> 
         </div>

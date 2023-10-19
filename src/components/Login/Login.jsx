@@ -61,11 +61,11 @@ const Login = () => {
 
     return (
         <div>
-            <div className="hero h-[650px]" style={{backgroundImage: 'url(https://i.ibb.co/qyxFSvQ/wepik-export-20231018071955-Iy-G2.png)'}}>
+            
            <div className=" bg-base-200">
   <div className="hero-content ">
     
-    <div className="card max-w-sm w-full  shadow-2xl bg-base-100">
+    <div className="card max-w-sm w-full  bg-base-100">
     <div className="text-center mt-8">
       <h1 className="text-3xl font-bold text-blue-900">Login Now</h1>
      <p className="mt-4">Enter your details to login</p>
@@ -98,7 +98,7 @@ const Login = () => {
     </div>
   </div>
 </div>
-</div>
+
         </div>
     );
 };

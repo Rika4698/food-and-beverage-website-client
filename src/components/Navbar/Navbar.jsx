@@ -109,7 +109,7 @@ const Navbar = () => {
                             <NavLink to='/login'>
 
                                 <button className="btn text-white bg-violet-400 w-24 lg:mr-8 lg:w-36">
-                                    <IoLogInOutline className="hidden md:flex md:text-2xl lg:text-2xl lg:flex"></IoLogInOutline>
+                                    <IoLogInOutline className="hidden   md:text-2xl lg:text-2xl lg:flex"></IoLogInOutline>
                                     <span className="text-lg">Login</span></button>
                             </NavLink>
 

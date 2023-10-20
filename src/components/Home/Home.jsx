@@ -1,6 +1,7 @@
 import {  useLoaderData } from "react-router-dom";
 import Banner from "../Banner/Banner";
 import Brand from "../Brand/Brand";
+import Certification from "../Certification/Certification";
 
 
 
@@ -21,11 +22,12 @@ const Home = () => {
              )
              
             }
-         
           </div>
       
           </div>
-         
+
+
+          <Certification></Certification>
         </div>
     );
 };

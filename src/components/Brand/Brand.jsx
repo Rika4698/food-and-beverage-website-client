@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
 
 const Brand = ({products}) => {
     const{ brand,photo} = products || {};
     return (
         <div>
             
-            <div className=" w-[280px] h-[300px] bg-stone-300 ">
+            <Link to={`/product/${brand}`}>   <div className=" w-[280px] h-[300px] bg-stone-300 ">
   <figure className=" w-[250px]  min-h-[200px]  ml-2 px-8 pt-10">
     <img src={photo} alt="" className="rounded-xl" />
   </figure>
@@ -16,6 +18,7 @@ const Brand = ({products}) => {
    
   </div>
 </div>
+</Link>
         </div>
     );
 };

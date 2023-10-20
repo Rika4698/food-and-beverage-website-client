@@ -8,7 +8,7 @@ const Certification = () => {
 Certification</h1>
           
             <div 
-            className="ml-12 mt-12 w-[300px] md:w-[570px] lg:w-[800px] xl:w-[1260px]  grid grid-cols-1 gap-8 xl:grid-cols-4 md:grid-cols-2 lg:grid-cols-3 " 
+            className="ml-12 mt-12 w-[300px] md:w-[570px] lg:w-[800px] xl:w-[1260px]  grid grid-cols-1 gap-8 xl:grid-cols-4 md:grid-cols-2 lg:grid-cols-3 pb-8" 
             //  md:flex-wrap xl:flex-row gap-8 "
             // className="grid grid-cols-1   md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4  gap-8"
             >

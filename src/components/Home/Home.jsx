@@ -2,6 +2,7 @@ import {  useLoaderData } from "react-router-dom";
 import Banner from "../Banner/Banner";
 import Brand from "../Brand/Brand";
 import Certification from "../Certification/Certification";
+import Section from "../Section/Section";
 
 
 
@@ -11,6 +12,7 @@ import Certification from "../Certification/Certification";
 
 const Home = () => {
     const product = useLoaderData();
+    // console.log(product);
     return (
         <div>
           <Banner></Banner>
@@ -28,6 +30,7 @@ const Home = () => {
 
 
           <Certification></Certification>
+          <Section></Section>
         </div>
     );
 };

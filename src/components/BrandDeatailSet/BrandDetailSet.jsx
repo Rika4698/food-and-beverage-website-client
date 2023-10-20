@@ -5,11 +5,13 @@ import BrandDetails from "./BrandDetails";
 
 const BrandDetailSet = () => {
     const[products,setProducts] = useState({});
+    const product = useLoaderData();
+    console.log(product);
         const {brand} = useParams();
-        const product = useLoaderData();
+        
         // console.log(product.map(brand));
         useEffect(() => {
-            const findProduct = product.filter((products) => products.name == brand);
+            const findProduct = product?.find((products) => products.name == brand);
             console.log(findProduct);
             if(findProduct)
             {
@@ -24,11 +26,11 @@ const BrandDetailSet = () => {
     return (
         <div>
             <div className="grid grid-cols-1 ml-16 pb-12 pt-20   md:grid-cols-2  lg:grid-cols-3  mr-6 gap-8">
-            {
-            product.map((products) =>(<BrandDetails key={products._id} products={products}></BrandDetails>
-             ))
+            
+         <BrandDetails key={products._id} products={products}></BrandDetails>
              
-            }
+             
+            
                     {/* <BrandDetails products={products}></BrandDetails>    */}
             </div>
         </div>

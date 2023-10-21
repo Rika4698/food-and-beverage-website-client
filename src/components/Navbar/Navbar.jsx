@@ -56,7 +56,9 @@ const Navbar = () => {
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "text-blue-800 font-bold text-2xl " : "font-semibold text-emerald-950 text-base"
                                 }>Home</NavLink></li>
-                            <li><NavLink to="/add-product"
+                            {
+                                 !user? "": <> 
+                                <li><NavLink to="/add-product"
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "text-blue-800 font-bold text-2xl " : "font-semibold text-emerald-950 text-base"
                                 }>Add-Product</NavLink></li>
@@ -64,6 +66,8 @@ const Navbar = () => {
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "text-blue-800 font-bold text-2xl " : "font-semibold text-emerald-950 text-base"
                                 }> My Cart</NavLink></li>
+                                </>
+                            }
                             <li><NavLink to="/contact"
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "text-blue-800 font-bold text-2xl " : "font-semibold text-emerald-950 text-base"
@@ -82,14 +86,18 @@ const Navbar = () => {
                             className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ? "text-blue-800 font-bold text-4xl dark:text-white" : "font-semibold text-emerald-950 text-xl"
                             }>Home</NavLink></li>
-                        <li><NavLink to="/add-product"
-                            className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "text-blue-800 font-bold text-4xl dark:text-white" : "font-semibold text-emerald-950 text-xl"
-                            }>Add-Product</NavLink></li>
-                        <li><NavLink to="/cart"
-                            className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "text-blue-800 font-bold text-4xl dark:text-white " : "font-semibold text-emerald-950 text-xl"
-                            }> My Cart</NavLink></li>
+                            {
+                                !user? "": <>
+                                <li><NavLink to="/add-product"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "text-blue-800 font-bold text-4xl dark:text-white" : "font-semibold text-emerald-950 text-xl"
+                                    }>Add-Product</NavLink></li>
+                                <li><NavLink to="/cart"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "text-blue-800 font-bold text-4xl dark:text-white " : "font-semibold text-emerald-950 text-xl"
+                                    }> My Cart</NavLink></li>
+                                    </>
+                            }
                         <li><NavLink to="/contact"
                             className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ? "text-blue-800 font-bold text-4xl dark:text-white " : "font-semibold text-emerald-950 text-xl"

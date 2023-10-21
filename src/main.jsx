@@ -21,7 +21,7 @@ import Contact from './components/Contact/Contact';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import DetailsSet from './components/DetailsSet/DetailsSet';
 import Update from './components/Update/Update';
-import Cart from './components/Cart/Cart';
+
 
 
 const router = createBrowserRouter([
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
   {
     path:'/',
     element:<Home></Home>,
-    loader: () => fetch('http://localhost:5000/product'),
+    loader: () => fetch('https://food-beverage-website-server-1fyqzff6h.vercel.app/product'),
    
     
   },
@@ -46,25 +46,25 @@ const router = createBrowserRouter([
   },
   {
       path:'/cart',
-      element:<Cart></Cart>,
+      // element:<Cart></Cart>,
       
   },
   {
      path:'/product/:brand',
      element:<BrandDetailSet></BrandDetailSet>,
-     loader: () => fetch('http://localhost:5000/product'),
+     loader: () => fetch('https://food-beverage-website-server-1fyqzff6h.vercel.app/product'),
      
 
   },
   {
     path:'/details/:_id',
-    element:<DetailsSet></DetailsSet>,
-    loader: () => fetch('http://localhost:5000/product'),
+    element:<PrivateRoute><DetailsSet></DetailsSet></PrivateRoute>,
+    loader: () => fetch('https://food-beverage-website-server-1fyqzff6h.vercel.app/product'),
   },
   {
     path:'/update/:id',
-    element:<Update></Update>,
-    loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`),
+    element:<PrivateRoute><Update></Update></PrivateRoute>,
+    loader: ({params}) => fetch(`https://food-beverage-website-server-1fyqzff6h.vercel.app/product/${params.id}`),
   },
   {
     path:'/contact',

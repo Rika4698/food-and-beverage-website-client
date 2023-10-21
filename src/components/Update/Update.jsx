@@ -25,7 +25,7 @@ const handleUpdate = event => {
 
     console.log(updateProduct);
     // send data to the server
-    fetch(`http://localhost:5000/product/${_id}`,{
+    fetch(` https://food-beverage-website-server-1fyqzff6h.vercel.app/product/${_id}`,{
         method:'PUT',
         headers: {
             'content-type' : 'application/json'

@@ -1,7 +1,7 @@
 ##  Project Name
 food-and-beverage-website
 ## live link
-
+ https://food-beverage-website-client.web.app/
 
 ## Add at least five bullet points mentioning different features and functionalities of your project.
 
@@ -9,7 +9,7 @@ food-and-beverage-website
 - **Variety of Products:** 
    SR Food and beverage shops offer a wide variety of products to meet the daily needs of consumers. This includes  bread, canned goods, beverages, snacks, and more.
 - **Registration & Login:**
-User create their profile use registration and login this website. Also user can use google accouunt for login this website.
+User create their profile use registration and login this website. Also user can use google account for login this website.
 - **Extra feature:**
 Here admin add product in many different brand and also update.
 - **Mode button:**

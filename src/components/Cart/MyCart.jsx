@@ -5,7 +5,7 @@
 // const MyCart = ({card,handleDelete}) => {
 //     const{product,setProduct} = useState({});
 //     useEffect(() => {
-//         fetch(`http://localhost:5000/product/${card.productId}`)
+//         fetch(`https://food-beverage-website-server-12zczvhde.vercel.appproduct/${card.productId}`)
 //         .then(res => res.json())
 //         .then(data =>{
 //             setProduct(data);
@@ -45,3 +45,81 @@
 // };
 
 // export default MyCart;
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../Hook/AuthProvider';
+import Swal from 'sweetalert2';
+import Carts from './Carts';
+
+const MyCart = () => {
+    const { user } = useContext(AuthContext);
+   
+
+    const [carts, setCarts] = useState([]);
+    useEffect(() => {
+        fetch('https://food-beverage-website-server-12zczvhde.vercel.app/cart')
+            .then(res => res.json())
+            .then(data => {
+                const filtered = data.filter(d => d.email == user.email);
+                setCarts(filtered);
+               
+            })
+            .catch(err => {
+               console.log(err);
+            })
+    }, []);
+
+    const handleDelete = (id) => {
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            const info = { email: user.email, id: id }
+            if (result.isConfirmed) {
+                fetch("https://food-beverage-website-server-12zczvhde.vercel.app/cart", {
+                    method: 'DELETE',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(info)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        const filtered = carts.filter(cart => cart.prodId != id && user.email == cart.email);
+                        setCarts(filtered);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Deleted from cart succesfully.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }
+                      
+                    })
+                    
+            }
+        })
+
+
+
+    }
+    return (
+        <div>
+           <div className="grid grid-cols-1 ml-16 pb-12 pt-20   md:grid-cols-2  lg:grid-cols-3  mr-6 gap-8">
+           {
+                carts.map(cart => <Carts key={cart._id} cart={cart} handleDelete={handleDelete} ></Carts>)
+            }
+            </div>
+           
+        </div>
+    );
+};
+
+export default MyCart;

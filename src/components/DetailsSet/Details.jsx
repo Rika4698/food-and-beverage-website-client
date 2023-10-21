@@ -2,17 +2,47 @@
 
 import { useContext } from "react";
 import RatingSet from "../BrandDeatailSet/RatingSet";
-import AuthProvider from "../../Hook/AuthProvider";
+import AuthProvider, { AuthContext } from "../../Hook/AuthProvider";
+import Swal from "sweetalert2";
+
 
 
 const Details = ({card}) => {
-    // const{user} = useContext(AuthProvider);
-    // const email = user.email;
+    const { user } = useContext(AuthContext);
+    const email = user.email;
     const {_id, name, image, brand, type,details, price,rating } = card || {};
 
     const handleAddToCart =(id) =>{
-        // const info = {id,email}
-        // console.log(info);
+        const info = {id,email}
+        console.log(info);
+        fetch("https://food-beverage-website-server-12zczvhde.vercel.app/cart", {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(info)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.upsertedId) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Product added in cart.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Opps!',
+                        text: 'Already Exist in the Cart.',
+                    })
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
 

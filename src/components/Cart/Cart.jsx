@@ -9,7 +9,7 @@
 //     const { user } = useContext(AuthContext);
 //     const {cart,setCart} = useState([]);
 //     useEffect(() =>{
-//         fetch('http://localhost:5000/product/cart')
+//         fetch('https://food-beverage-website-server-12zczvhde.vercel.appproduct/cart')
 //         .then(res => res.json())
 //         .then(data => {
 //             const final = data.filter((web) => web.email == user.email);
@@ -34,7 +34,7 @@
 //     //       .then((result) => {
 //     //         const detail = {email: user.email, id: id}
 //     //         if (result.isConfirmed){
-//     //             fetch('http://localhost:5000/product/cart',{
+//     //             fetch('https://food-beverage-website-server-12zczvhde.vercel.appproduct/cart',{
 //     //                 method: 'DELETE',
 //     //                 headers:{
 //     //                     'content-type': 'application/json'

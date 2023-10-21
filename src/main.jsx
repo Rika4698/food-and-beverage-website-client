@@ -21,6 +21,7 @@ import Contact from './components/Contact/Contact';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import DetailsSet from './components/DetailsSet/DetailsSet';
 import Update from './components/Update/Update';
+import MyCart from './components/Cart/MyCart';
 
 
 
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
   {
     path:'/',
     element:<Home></Home>,
-    loader: () => fetch('https://food-beverage-website-server-k6rm4v00w.vercel.app/product'),
+    loader: () => fetch('https://food-beverage-website-server-12zczvhde.vercel.app/product'),
    
     
   },
@@ -46,25 +47,25 @@ const router = createBrowserRouter([
   },
   {
       path:'/cart',
-      // element:<Cart></Cart>,
+      element:<MyCart></MyCart>,
       
   },
   {
      path:'/product/:brand',
      element:<BrandDetailSet></BrandDetailSet>,
-     loader: () => fetch('https://food-beverage-website-server-k6rm4v00w.vercel.app/product'),
+     loader: () => fetch('https://food-beverage-website-server-12zczvhde.vercel.app/product'),
      
 
   },
   {
     path:'/details/:_id',
     element:<PrivateRoute><DetailsSet></DetailsSet></PrivateRoute>,
-    loader: () => fetch('https://food-beverage-website-server-k6rm4v00w.vercel.app/product'),
+    loader: () => fetch('https://food-beverage-website-server-12zczvhde.vercel.app/product'),
   },
   {
     path:'/update/:id',
     element:<PrivateRoute><Update></Update></PrivateRoute>,
-    loader: ({params}) => fetch(`https://food-beverage-website-server-k6rm4v00w.vercel.app/product/${params.id}`),
+    loader: ({params}) => fetch(`https://food-beverage-website-server-12zczvhde.vercel.app/product/${params.id}`),
   },
   {
     path:'/contact',

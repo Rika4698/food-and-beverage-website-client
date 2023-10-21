@@ -1,10 +1,22 @@
 /* eslint-disable react/prop-types */
 
+import { useContext } from "react";
 import RatingSet from "../BrandDeatailSet/RatingSet";
+import AuthProvider from "../../Hook/AuthProvider";
 
 
 const Details = ({card}) => {
-    const { name, image, brand, type,details, price,rating } = card || {};
+    // const{user} = useContext(AuthProvider);
+    // const email = user.email;
+    const {_id, name, image, brand, type,details, price,rating } = card || {};
+
+    const handleAddToCart =(id) =>{
+        // const info = {id,email}
+        // console.log(info);
+    }
+
+
+
     return (
         <div>
             {/* border-[2px] border-black */}
@@ -28,7 +40,7 @@ const Details = ({card}) => {
 
     <div className="card-actions justify-end">
         {/* <Link to='/cart'> */}
-      <button className="btn capitalize bg-fuchsia-500 text-white text-lg">Add to Cart</button>
+      <button onClick={() => handleAddToCart(_id)} className="btn capitalize bg-fuchsia-500 text-white text-lg">Add to Cart</button>
       {/* </Link> */}
     </div>
   </div>

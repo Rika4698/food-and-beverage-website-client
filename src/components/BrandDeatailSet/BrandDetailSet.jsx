@@ -21,7 +21,7 @@ const BrandDetailSet = () => {
             
                 setProducts(findProduct);
 
-                fetch(` https://food-beverage-website-server-1fyqzff6h.vercel.app/slider?brand=${brand}`)
+                fetch(`https://food-beverage-website-server-k6rm4v00w.vercel.app/slider?brand=${brand}`)
                 .then((response) => response.json())
                 .then((data) => {
                     const findSlide = data.filter((products) => products.brand == brand);

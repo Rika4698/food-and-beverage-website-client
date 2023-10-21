@@ -34,7 +34,7 @@ const router = createBrowserRouter([
   {
     path:'/',
     element:<Home></Home>,
-    loader: () => fetch('https://food-beverage-website-server-1fyqzff6h.vercel.app/product'),
+    loader: () => fetch('https://food-beverage-website-server-k6rm4v00w.vercel.app/product'),
    
     
   },
@@ -52,19 +52,19 @@ const router = createBrowserRouter([
   {
      path:'/product/:brand',
      element:<BrandDetailSet></BrandDetailSet>,
-     loader: () => fetch('https://food-beverage-website-server-1fyqzff6h.vercel.app/product'),
+     loader: () => fetch('https://food-beverage-website-server-k6rm4v00w.vercel.app/product'),
      
 
   },
   {
     path:'/details/:_id',
     element:<PrivateRoute><DetailsSet></DetailsSet></PrivateRoute>,
-    loader: () => fetch('https://food-beverage-website-server-1fyqzff6h.vercel.app/product'),
+    loader: () => fetch('https://food-beverage-website-server-k6rm4v00w.vercel.app/product'),
   },
   {
     path:'/update/:id',
     element:<PrivateRoute><Update></Update></PrivateRoute>,
-    loader: ({params}) => fetch(`https://food-beverage-website-server-1fyqzff6h.vercel.app/product/${params.id}`),
+    loader: ({params}) => fetch(`https://food-beverage-website-server-k6rm4v00w.vercel.app/product/${params.id}`),
   },
   {
     path:'/contact',

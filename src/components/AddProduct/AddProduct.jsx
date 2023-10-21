@@ -22,7 +22,7 @@ const AddProduct = () => {
 
         console.log(newProduct);
         // send data to the server
-        fetch('https://food-beverage-website-server-1fyqzff6h.vercel.app/product',{
+        fetch('https://food-beverage-website-server-k6rm4v00w.vercel.app/product',{
             method:'POST',
             headers: {
                 'content-type' : 'application/json'

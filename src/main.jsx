@@ -21,6 +21,7 @@ import Contact from './components/Contact/Contact';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import DetailsSet from './components/DetailsSet/DetailsSet';
 import Update from './components/Update/Update';
+import Cart from './components/Cart/Cart';
 
 
 const router = createBrowserRouter([
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
   },
   {
       path:'/cart',
+      element:<Cart></Cart>,
       
   },
   {

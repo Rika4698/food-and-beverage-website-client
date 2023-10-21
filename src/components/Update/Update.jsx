@@ -51,7 +51,7 @@ const handleUpdate = event => {
 
     return (
         <div>
-           <div className="bg-[#f7d6c1] p-24">
+           <div className="bg-[#f7c3c1] p-24">
             <h2 className="text-4xl font-extrabold  text-[#0cbd9f] underline mb-10">Update Product: {name}</h2>
             <form onSubmit={handleUpdate} >  
                 {/* onSubmit={handleProduct}  */}

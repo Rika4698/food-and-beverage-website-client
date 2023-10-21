@@ -3,7 +3,7 @@
 
 const SliderDetail = ({slider}) => {
     const { image1 , image2 , image3} = slider || {};
-    console.log(slider);
+    // console.log(slider);
     return (
         <div>
             <div className="carousel w-full h-[400px] md:h-[500px] lg:h-[500px]">

@@ -1,9 +1,11 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 import RatingSet from "./RatingSet";
 
 
 const BrandDetails = ({carts}) => {
-    const { name, image, brand, type, price,rating } = carts || {};
+    const { _id,name, image, brand, type, price,rating } = carts || {};
     return (
         <div>
            
@@ -16,14 +18,17 @@ const BrandDetails = ({carts}) => {
       <div className="badge badge-secondary text-center  w-20 h-10">{brand}</div>
     </h1>
     <p>{type}</p>
-    <h1 className="text-lg text-rose-500 font-bold">Price: {price} TK</h1>
+   
     <div className="flex gap-2">
     <RatingSet  rating={rating}></RatingSet>
     <p className="text-base  ">({rating})</p>
   </div>
+  <h1 className="text-xl text-rose-500 font-bold ">Price: {price} TK</h1>
     <div className="card-actions justify-between mt-4">
-      <button className="btn capitalize text-lg bg-green-300" >Details</button>
-      <button className="btn capitalize text-lg bg-orange-300">Update</button>
+    <Link to={`/details/${_id}`}>  
+    <button className="btn capitalize text-lg bg-green-300" >Details</button>
+    </Link>
+     <button className="btn capitalize text-lg bg-orange-300">Update</button>
     </div>
   </div>
 </div>

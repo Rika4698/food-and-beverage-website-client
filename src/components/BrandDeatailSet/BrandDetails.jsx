@@ -1,20 +1,29 @@
+/* eslint-disable react/prop-types */
+import RatingSet from "./RatingSet";
 
 
-const BrandDetails = ({item}) => {
-    const { name, image, brand,photo, type, details, price,rating } = item || {};
+const BrandDetails = ({carts}) => {
+    const { name, image, brand, type, price,rating } = carts || {};
     return (
         <div>
-            <div className="card  bg-base-100 shadow-xl">
-  <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+           
+
+            <div className="card h-[600px] bg-green-100 shadow-xl">
+  <figure><img className=" w-[250px] h-[250px] lg:w-[280px] lg:h-[300px] pt-10" src={image} alt="" /></figure>
   <div className="card-body">
-    <h2 className="card-title">
-      Shoes!
-      <div className="badge badge-secondary">NEW</div>
-    </h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <div className="badge badge-outline">Fashion</div> 
-      <div className="badge badge-outline">Products</div>
+    <h1 className="card-title font-bold">
+      {name}
+      <div className="badge badge-secondary text-center  w-20 h-10">{brand}</div>
+    </h1>
+    <p>{type}</p>
+    <h1 className="text-lg text-rose-500 font-bold">Price: {price} TK</h1>
+    <div className="flex gap-2">
+    <RatingSet  rating={rating}></RatingSet>
+    <p className="text-base  ">({rating})</p>
+  </div>
+    <div className="card-actions justify-between mt-4">
+      <button className="btn capitalize text-lg bg-green-300" >Details</button>
+      <button className="btn capitalize text-lg bg-orange-300">Update</button>
     </div>
   </div>
 </div>

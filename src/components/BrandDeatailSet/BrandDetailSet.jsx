@@ -53,12 +53,17 @@ const BrandDetailSet = () => {
             products.length <= 1 ?
             <h1 className="text-center font-bold text-4xl text-rose-500 pt-8 mb-20">Products  Coming Soon...</h1>
             :
+            <div>
+            <h1 className="text-center font-bold text-5xl text-orange-500 pt-8">All Products</h1>
+            <p className="text-center p-4 text-base">For your daily life</p>
             <div className="grid grid-cols-1 ml-16 pb-12 pt-20   md:grid-cols-2  lg:grid-cols-3  mr-6 gap-8">
             {
             products.map(carts => <BrandDetails key={carts._id} carts={carts}></BrandDetails>
                 )
             }
              </div>
+             </div>
+        
          }
              
              

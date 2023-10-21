@@ -26,9 +26,11 @@ const BrandDetails = ({carts}) => {
   <h1 className="text-xl text-rose-500 font-bold ">Price: {price} TK</h1>
     <div className="card-actions justify-between mt-4">
     <Link to={`/details/${_id}`}>  
-    <button className="btn capitalize text-lg bg-green-300" >Details</button>
+    <button className="btn capitalize text-lg bg-green-300" >View Details</button>
     </Link>
+     <Link to={`/update/${_id}`}>
      <button className="btn capitalize text-lg bg-orange-300">Update</button>
+     </Link>
     </div>
   </div>
 </div>

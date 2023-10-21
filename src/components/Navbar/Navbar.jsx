@@ -105,7 +105,7 @@ const Navbar = () => {
 
                         >
 
-                            <img className="w-16 bg-emerald-400 rounded-full" src={user.photoURL} alt="" />
+                            <img className="w-14 bg-emerald-400 rounded-full" src={user.photoURL} alt="" />
                             <h3 className=" w-12 mr-4   text-sm text-center font-semibold lg:mx-6 md:mx-6 dark:text-white">{user.displayName}</h3>
                             <button onClick={handleSignOut} className="rounded-lg text-white bg-green-500 w-18 h-8   lg:w-28 lg:h-10 md:w-24 md:h-10 "  >
                                 <BiLogOut className=" hidden md:inline-flex md:text-xl lg:inline-flex lg:text-xl  "></BiLogOut>

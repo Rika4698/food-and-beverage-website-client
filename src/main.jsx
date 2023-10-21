@@ -20,6 +20,7 @@ import BrandDetailSet from './components/BrandDeatailSet/BrandDetailSet';
 import Contact from './components/Contact/Contact';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import DetailsSet from './components/DetailsSet/DetailsSet';
+import Update from './components/Update/Update';
 
 
 const router = createBrowserRouter([
@@ -57,6 +58,11 @@ const router = createBrowserRouter([
     path:'/details/:_id',
     element:<DetailsSet></DetailsSet>,
     loader: () => fetch('http://localhost:5000/product'),
+  },
+  {
+    path:'/update/:id',
+    element:<Update></Update>,
+    loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`),
   },
   {
     path:'/contact',

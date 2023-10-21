@@ -1,7 +1,7 @@
 
 
-const BrandDetails = ({products}) => {
-    const { name, image, brand,photo, type, details, price,rating } = products || {};
+const BrandDetails = ({item}) => {
+    const { name, image, brand,photo, type, details, price,rating } = item || {};
     return (
         <div>
             <div className="card  bg-base-100 shadow-xl">

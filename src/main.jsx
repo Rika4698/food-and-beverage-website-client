@@ -17,6 +17,8 @@ import Register from './components/Register/Register';
 import AuthProvider from './Hook/AuthProvider';
 import AddProduct from './components/AddProduct/AddProduct';
 import BrandDetailSet from './components/BrandDeatailSet/BrandDetailSet';
+import Contact from './components/Contact/Contact';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -35,7 +37,7 @@ const router = createBrowserRouter([
   },
   {
       path:'/add-product',
-      element:<AddProduct></AddProduct>,
+      element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>,
     
      
   },
@@ -49,6 +51,10 @@ const router = createBrowserRouter([
      loader: () => fetch('http://localhost:5000/product'),
      
 
+  },
+  {
+    path:'/contact',
+    element:<Contact></Contact>,
   },
   {
     path:'/login',

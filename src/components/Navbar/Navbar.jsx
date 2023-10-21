@@ -64,6 +64,10 @@ const Navbar = () => {
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "text-blue-800 font-bold text-2xl " : "font-semibold text-emerald-950 text-base"
                                 }> My Cart</NavLink></li>
+                            <li><NavLink to="/contact"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "text-blue-800 font-bold text-2xl " : "font-semibold text-emerald-950 text-base"
+                                }> Contact </NavLink></li>
                                 <button onClick={handleTheme} className="btn bg-black text-white w-20 dark:bg-slate-300 dark:text-black">{theme} Mode</button>
 
                         </ul>
@@ -86,7 +90,11 @@ const Navbar = () => {
                             className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ? "text-blue-800 font-bold text-4xl dark:text-white " : "font-semibold text-emerald-950 text-xl"
                             }> My Cart</NavLink></li>
-                            <button onClick={handleTheme} className="btn bg-black text-white lg:w-16 ml-0 xl:ml-36 dark:bg-white dark:text-black">{theme} Mode</button>
+                        <li><NavLink to="/contact"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "text-blue-800 font-bold text-4xl dark:text-white " : "font-semibold text-emerald-950 text-xl"
+                            }>Contact </NavLink></li>
+                            <button onClick={handleTheme} className="btn bg-black text-white lg:w-16 ml-0  dark:bg-white dark:text-black">{theme} Mode</button>
 
                     </ul>
                 </div>

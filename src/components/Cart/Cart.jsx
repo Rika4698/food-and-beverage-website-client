@@ -1,78 +1,22 @@
-// import { useContext, useEffect, useState } from "react";
-// import { AuthContext } from "../../Hook/AuthProvider";
-// import swal from 'sweetalert';
-// import Swal from "sweetalert2";
-// import MyCart from "./MyCart";
+/* eslint-disable react/prop-types */
+import  { createContext, useContext, useState } from 'react';
 
+const TotalLengthContext = createContext();
 
-// const Cart = ({id}) => {
-//     const { user } = useContext(AuthContext);
-//     const {cart,setCart} = useState([]);
-//     useEffect(() =>{
-//         fetch('https://food-beverage-website-server-12zczvhde.vercel.appproduct/cart')
-//         .then(res => res.json())
-//         .then(data => {
-//             const final = data.filter((web) => web.email == user.email);
-//             setCart(final);
-//         })
-//         .catch(err => {
-//             console.log(err);
-//         })
+export const TotalLengthProvider = ({ children }) => {
+  const [totalLength, setTotalLength] = useState(0);
 
-            
-//     },[]);
+  return (
+    <TotalLengthContext.Provider value={{ totalLength, setTotalLength }}>
+      {children}
+    </TotalLengthContext.Provider>
+  );
+};
 
-//     // const handleDelete = id ={
-//     //     // console.log(id)
-//     //     swal({
-//     //         // title: "Are you sure?",
-//     //         // text: "Once deleted you will not be able to recover this!",
-//     //         // icon: "warning"
-//     //         // // buttons: true,
-//     //         // // dangerMode: true
-//     //       })
-//     //       .then((result) => {
-//     //         const detail = {email: user.email, id: id}
-//     //         if (result.isConfirmed){
-//     //             fetch('https://food-beverage-website-server-12zczvhde.vercel.appproduct/cart',{
-//     //                 method: 'DELETE',
-//     //                 headers:{
-//     //                     'content-type': 'application/json'
-//     //                 },
-//     //                 body: JSON.stringify(detail)
-//     //             })
-//     //             .then(res => res.json())
-//     //             .then(data =>{
-//     //                 const final = cart.filter((carts) => carts.productId != id && user.email == cart.email);
-//     //                 setCart(final);
-//     //                 if(data.deletedCount > 0)
-//     //                 {
-//     //                     Swal.fire({
-//     //                         position: 'center',
-//     //                         icon: 'success',
-//     //                         title: 'Your work has been saved',
-//     //                         showConfirmButton: false,
-//     //                         timer: 1500
-//     //                       })
-//     //                 }
-//     //             })
-//     //             // .catch(err => {
-//     //             //     console.log();
-//     //             // })
-//     //         } handleDelete={handleDelete} 
-//     //       })
-
-//     // }
-//     return (
-//         <div>
-//              <div className="grid grid-cols-1 ml-16 pb-12 pt-20   md:grid-cols-2  lg:grid-cols-3  mr-6 gap-8"></div>
-//             {
-//                 cart?.map(card => <MyCart
-                    
-//                      key={card._id} card={card}></MyCart>)
-//             }
-//         </div>
-//     );
-// };
-
-// export default Cart;
+export const useTotalLength = () => {
+  const context = useContext(TotalLengthContext);
+  if (!context) {
+    throw new Error('useTotalLength must be used within a TotalLengthProvider');
+  }
+  return context;
+};

@@ -2,48 +2,64 @@
 
 import { useContext } from "react";
 import RatingSet from "../BrandDeatailSet/RatingSet";
-import AuthProvider, { AuthContext } from "../../Hook/AuthProvider";
+import { AuthContext } from "../../Hook/AuthProvider";
 import Swal from "sweetalert2";
+import axios from "axios";
+import UseCart from "../../Hook/UseCart";
+// import { useTotalLength } from "../Cart/Cart";
 
 
 
 const Details = ({card}) => {
     const { user } = useContext(AuthContext);
+    const[,refetch]=UseCart();
     const email = user.email;
     const {_id, name, image, brand, type,details, price,rating } = card || {};
-
-    const handleAddToCart =(id) =>{
-        const info = {id,email}
-        console.log(info);
-        fetch("https://food-beverage-website-server-12zczvhde.vercel.app/cart", {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(info)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.upsertedId) {
+    // const {totalLength ,setTotalLength} = useTotalLength();
+    // const [addedItems, setAddedItems] = useState([]);
+    const handleAddToCart =(card) =>{
+        // const info = {id,email}
+        // console.log(info);
+        if(user&& email){
+            console.log(email,card);
+            const cartItem = {
+                proId: _id,
+                email,
+                name,
+                image,
+                price,
+                brand,
+                type,
+                rating
+            }
+            axios.post("http://localhost:5000/cart", cartItem)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.insertedId) {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
                         title: 'Product added in cart.',
                         showConfirmButton: false,
                         timer: 1500
-                    })
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Opps!',
-                        text: 'Already Exist in the Cart.',
-                    })
+                    });
+                    refetch();
                 }
             })
             .catch(err => {
                 console.log(err);
-            })
-    }
+                if (err.response && err.response.status === 400) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Product already exists in the cart!',
+                    });
+                }
+            });
+        }
+    
+       
+    };
 
 
 
@@ -70,7 +86,7 @@ const Details = ({card}) => {
 
     <div className="card-actions justify-end">
         {/* <Link to='/cart'> */}
-      <button onClick={() => handleAddToCart(_id)} className="btn capitalize bg-fuchsia-500 text-white text-lg">Add to Cart</button>
+      <button onClick={() => handleAddToCart(card)} className="btn capitalize bg-fuchsia-500 text-white text-lg">Add to Cart</button>
       {/* </Link> */}
     </div>
   </div>

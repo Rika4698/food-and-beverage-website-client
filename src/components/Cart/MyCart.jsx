@@ -45,8 +45,8 @@
 // };
 
 // export default MyCart;
-import  { useContext } from 'react';
-import { AuthContext } from '../../Hook/AuthProvider';
+// import  { useContext } from 'react';
+// import { AuthContext } from '../../Hook/AuthProvider';
 import Swal from 'sweetalert2';
 import Carts from './Carts';
 import UseCart from '../../Hook/UseCart';
@@ -56,10 +56,10 @@ import useAxiosSecure from '../../Hook/useAxiosSecure';
 
 
 const MyCart = () => {
-    const { user } = useContext(AuthContext);
+    // const { user } = useContext(AuthContext);
    
     const[cart,refetch] = UseCart();
-     const email =user.email;
+    //  const email =user.email;
     const axiosSecure = useAxiosSecure();
     // const {totalLength ,setTotalLength} = useTotalLength();
 
@@ -171,7 +171,7 @@ const MyCart = () => {
              {/* <button onClick={handleDeleteAll} className="btn capitalize text-lg bg-green-300" >Delete</button> */}
              {
                 cart.length < 1 ?
-                <h1 className="text-center font-bold text-4xl text-rose-500 pt-8 mb-20">You haven't added anything!!</h1>
+                <h1 className="text-center font-bold text-4xl text-rose-500 pt-8 mb-20">You have not added anything!!</h1>
                 :
                 <div className="grid grid-cols-1 ml-16 pb-12 pt-20   md:grid-cols-2  lg:grid-cols-3  mr-6 gap-8">
                 {

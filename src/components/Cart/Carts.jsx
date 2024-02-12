@@ -43,7 +43,7 @@ const Carts = ({cart,handleDelete}) => {
     <button onClick={()=>handleDelete(cart._id)} className="btn capitalize text-lg bg-green-300" >Delete</button>
     
      
-     <button className="btn capitalize text-lg bg-orange-300">Update</button>
+     {/* <button className="btn capitalize text-lg bg-orange-300">Update</button> */}
      
     </div>
   </div>

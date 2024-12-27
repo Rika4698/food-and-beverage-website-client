@@ -5,7 +5,7 @@
 // const MyCart = ({card,handleDelete}) => {
 //     const{product,setProduct} = useState({});
 //     useEffect(() => {
-//         fetch(`http://localhost:5000product/${card.productId}`)
+//         fetch(`https://food-beverage-website-server-qxnackit4.vercel.appproduct/${card.productId}`)
 //         .then(res => res.json())
 //         .then(data =>{
 //             setProduct(data);
@@ -66,7 +66,7 @@ const MyCart = () => {
     // const [carts, setCarts] = useState([]);
     // const { totalLength , setTotalLength } = useTotalLength();
     // useEffect(() => {
-    //     fetch('http://localhost:5000/cart')
+    //     fetch('https://food-beverage-website-server-qxnackit4.vercel.app/cart')
     //         .then(res => res.json())
     //         .then(data => {
     //             const filtered = data.filter(d => d.email == user.email);
@@ -136,7 +136,7 @@ const MyCart = () => {
     //         if (result.isConfirmed) {
     //             // const email = user.email; // Assuming user is defined somewhere in your component
     //             if (email) {
-    //                 fetch(`http://localhost:5000/cart/${email}`, {
+    //                 fetch(`https://food-beverage-website-server-qxnackit4.vercel.app/cart/${email}`, {
     //                     method: 'DELETE',
     //                     headers: {
     //                         'Content-Type': 'application/json',

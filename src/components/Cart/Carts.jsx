@@ -10,7 +10,7 @@ const Carts = ({cart,handleDelete}) => {
     // const [product, setProduct] = useState({});
 
     // useEffect(() => {
-    //     fetch("http://localhost:5000/product")
+    //     fetch("https://food-beverage-website-server-qxnackit4.vercel.app/product")
     //         .then(res => res.json())
     //         .then(data => {
     //             const findCard = data.find((products) => products._id == cart.prodId);

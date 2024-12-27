@@ -50,7 +50,7 @@ const Details = ({card}) => {
                 type,
                 rating
             }
-            axios.post("http://localhost:5000/cart", cartItem)
+            axios.post("https://food-beverage-website-server-qxnackit4.vercel.app/cart", cartItem)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {

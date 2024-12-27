@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://food-beverage-website-server-qxnackit4.vercel.app'
 })
 
 const useAxiosSecure = () => {

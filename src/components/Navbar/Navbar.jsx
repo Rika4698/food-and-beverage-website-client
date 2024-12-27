@@ -25,7 +25,7 @@ import UseCart from "../../Hook/UseCart";
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
     const [cart]=UseCart();
 
     // const{carts.length} = useContext(totalLength);
@@ -147,7 +147,8 @@ const Navbar = () => {
             onClick={() => setDropdownOpen((prev) => !prev)}
           >
             <span className="sr-only">Open user menu</span>
-            <img className="btn w-12 lg:w-14  rounded-full" src={user.photoURL} alt="" />
+            <img className="btn-circle w-12 h-12 lg:w-14 lg:h-14 rounded-full" 
+            src={user.photoURL} alt="" />
           </button>
 
           

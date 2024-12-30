@@ -103,9 +103,9 @@ const Home = () => {
       
           </div>
 
-
-          <Certification></Certification>
           <Section></Section>
+          <Certification></Certification>
+          
         </div>
     );
 };

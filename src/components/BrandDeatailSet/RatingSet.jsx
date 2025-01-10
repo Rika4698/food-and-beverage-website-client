@@ -10,16 +10,17 @@ const RatingSet = ({rating}) => {
     const halfStar = rating % 1 !== 0;
    
     const starIcons = [];
+    const iconClass = 'text-yellow-500 dark:text-yellow-200';
   for (let i = 0; i < fullStars; i++) {
-    starIcons.push(<FontAwesomeIcon key={i} icon={faStar} color="orange" />);
+    starIcons.push(<FontAwesomeIcon key={i} icon={faStar} className={iconClass}/>);
   }
 
   if (halfStar) {
-    starIcons.push(<FontAwesomeIcon key="half" icon={faStarHalfStroke} color="orange" />);
+    starIcons.push(<FontAwesomeIcon key="half" icon={faStarHalfStroke} className={iconClass}/>);
   }
     return (
         <div>
-            <div className="rating ">{starIcons}</div>
+            <div className="rating gap-1  mt-2 text-slate-200 text-lg lg:text-xl">{starIcons}</div>
         </div>
     );
 };

@@ -24,30 +24,32 @@ const Carts = ({cart,handleDelete}) => {
     return (
         <div>
           
-            <div className="card h-[600px] bg-green-100 shadow-xl">
-  <figure><img className=" w-[250px] h-[250px] lg:w-[280px] lg:h-[300px] pt-10" src={cart.image} alt="" /></figure>
-  <div className="card-body">
-    <h1 className="card-title font-bold">
-      {cart.name}
-      <div className="badge badge-secondary text-center  w-20 h-10">{cart.brand}</div>
-    </h1>
-    <p>{cart.type}</p>
+        
+
+
+        
+            <div className="flex items-center mb-4 bg-sky-50 ">
+                <img className="h-32 w-32 object-contain  mr-4 lg:w-40 lg:h-40 " src={cart.image}
+                    alt="Product"/>
+                <div className="flex-1 p-2  -ml-2 mr-2  ">
+                    <h2 className="text-base md:text-xl font-bold line-clamp-1 lg:text-xl">{cart.name}</h2>
+                    <p className="text-sm py-1 lg:text-base">{cart.type}</p>
    
-    <div className="flex gap-2">
-    <RatingSet  rating={cart.rating}></RatingSet>
-    <p className="text-base  ">({cart.rating})</p>
-  </div>
-  <h1 className="text-xl text-rose-500 font-bold ">Price: {cart.price} TK</h1>
-    <div className="card-actions justify-between mt-4">
-    
-    <button onClick={()=>handleDelete(cart._id)} className="btn capitalize text-lg bg-green-300" >Delete</button>
-    
-     
-     {/* <button className="btn capitalize text-lg bg-orange-300">Update</button> */}
-     
-    </div>
-  </div>
-</div>
+   
+ 
+ <h1 className="text-base md:text-lg text-green-600 font-bold ">Price: {cart.price} TK</h1>
+                 
+                </div>
+                <button onClick={()=>handleDelete(cart._id)} className="text-gray-800 hover:text-red-500 mr-2 lg:mr-6  ">
+                    <svg className="h-6 w-6 lg:w-10 lg:h-10 fill-current" viewBox="0 0 24 24">
+                        <path d="M19 13H5v-2h14v2z" />
+                    </svg>
+                </button>
+            </div>
+           
+           
+       
+       
         </div>
     );
 };

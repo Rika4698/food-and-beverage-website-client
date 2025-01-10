@@ -78,4 +78,23 @@ body{
             animation: float 6s ease-in-out infinite;
         }
 
+        .rgb-button {
+            background: linear-gradient(45deg, #81f0ee, #c18aee, #67acf1);
+            background-size: 600% 600%;
+            animation: gradient 5s ease infinite;
+        }
+      
+        .dark .rgb-button {
+              background: linear-gradient(45deg, #fcfbf9, #9e9ca9, #7f7474);
+              background-size: 600% 600%;
+              animation: gradient 5s ease infinite;
+            }
+       
+        
 
+            @keyframes gradient {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+            

@@ -5,7 +5,7 @@ const Certification = () => {
         <div className="dark:bg-black">
   
 
-            <section className="bg-animated cyber-grid py-20 relative overflow-hidden ">
+            <section className="  py-20 relative overflow-hidden ">
     <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-16 neon-text " >
             Our

@@ -47,10 +47,13 @@
 // export default MyCart;
 // import  { useContext } from 'react';
 // import { AuthContext } from '../../Hook/AuthProvider';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
+import swal from "sweetalert";
 import Carts from './Carts';
 import UseCart from '../../Hook/UseCart';
 import useAxiosSecure from '../../Hook/useAxiosSecure';
+import { Link } from 'react-router-dom';
+
 
 // import { useTotalLength } from './Cart';
 
@@ -88,28 +91,38 @@ const MyCart = () => {
 
     const handleDelete = (id) => {
 
-        Swal.fire({
+        swal({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
             icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            console.log(result);
+            buttons: {
+                
+                cancel: {
+                    
+                    text: "Cancel",
+                    visible: true,
+                    className: "bg-gray-400 text-white py-2 px-4 rounded-lg hover:none"  
+                },
+                confirm: {
+                    text: "Yes, delete it!",
+                    className: "bg-red-600 text-white py-2 px-4 rounded-lg" 
+                }
+            },
+            dangerMode: true,
+        }).then((willDelete) => {
+            // console.log(willDelete);
             // const info = { email: user.email, id: id }
-            if (result.isConfirmed) {
+            if (willDelete) {
               axiosSecure.delete(`/cart/${id}`)
                     .then(res => {
                        console.log(res);
                         if ((res.data.deletedCount > 0)) {
-                            Swal.fire({
+                            swal({
                                 position: 'top-end',
                                 icon: 'success',
                                 title: 'Deleted from cart succesfully.',
-                                showConfirmButton: false,
-                                timer: 1500
+                               
+                                timer: 1500,
                             })
                             refetch()
                             // setTotalLength(totalLength - 1);
@@ -167,21 +180,41 @@ const MyCart = () => {
 
 
     return (
-        <div>
+        <div className='dark:bg-slate-700 pb-12'>
              {/* <button onClick={handleDeleteAll} className="btn capitalize text-lg bg-green-300" >Delete</button> */}
              {
                 cart.length < 1 ?
-                <h1 className="text-center font-bold text-4xl text-rose-500 pt-8 mb-20">You have not added anything!!</h1>
+                <div className='flex flex-col justify-center items-center  '>
+             <h1 className="text-center font-bold text-4xl text-rose-500 dark:text-white mt-[125px] pt-28 lg:mt-[142px]  ">You have not added anything to your cart!! ☹️</h1>
+              <Link to="/"><button className=' px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg my-6  text-lg'>Browse
+
+                </button>
+                </Link>
+                </div>
                 :
-                <div className="grid grid-cols-1 ml-16 pb-12 pt-20   md:grid-cols-2  lg:grid-cols-3  mr-6 gap-8">
-                {
+                // <div className="grid grid-cols-1 ml-16 pb-12 pt-20   md:grid-cols-2  lg:grid-cols-3  mr-6 gap-8">
+                // {
+                     
+                //      cart.map(cart => <Carts key={cart._id} cart={cart} handleDelete={handleDelete} ></Carts>)
+                //  }
+                //  </div>
+             
+          <div className="p-6 max-w-2xl mx-auto mt-16 lg:max-w-3xl xl:max-w-4xl dark:bg-slate-700 ">
+    <div className="bg-white shadow-xl rounded-lg overflow-hidden  mt-16 lg:mt-24 ">
+        <div className="flex items-center justify-between px-4 py-3 bg-gray-200">
+            <h1 className="text-lg font-bold lg:text-2xl">Shopping Cart</h1>
+            <span className="text-gray-600 lg:text-lg">({cart.length} items)</span>
+        </div>
+        <div className="p-4 bg-orange-50 dark:bg-gray-500">
+             {
                      
                      cart.map(cart => <Carts key={cart._id} cart={cart} handleDelete={handleDelete} ></Carts>)
                  }
-                 </div>
-             }
-          
-           
+        </div>
+        
+    </div>
+</div>
+}     
            
         </div>
         

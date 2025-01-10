@@ -5,7 +5,7 @@ import swal from "sweetalert";
 
 const Update = () => {
  const product = useLoaderData();
-const{ _id,name, image, brand, type,  price,rating } = product;
+const{ _id,name, image, brand,photo,details, type,  price,rating } = product;
 
 const handleUpdate = event => {
     event.preventDefault();
@@ -15,13 +15,14 @@ const handleUpdate = event => {
     const name = form.name.value;
     const image = form.image.value;
     const brand  = form.brand.value;
-
+    const photo =form.photo.value;
+    const details = form.details.value;
     const type = form.type.value;
     const price = form.price.value;
     const rating = form.rating.value;
   
     
-    const updateProduct = { name, image, brand, type,  price,rating }
+    const updateProduct = { name, image, brand,photo, type, details, price,rating }
 
     console.log(updateProduct);
     // send data to the server
@@ -51,77 +52,138 @@ const handleUpdate = event => {
 
     return (
         <div>
-           <div className="bg-[#f7c3c1] p-24">
-            <h2 className="text-4xl font-extrabold  text-[#0cbd9f] underline mb-10">Update Product: {name}</h2>
-            <form onSubmit={handleUpdate} >  
-                {/* onSubmit={handleProduct}  */}
-                
-                <div className="md:flex mb-8">
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text font-semibold text-base">Product Name:</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="name" defaultValue = {name} placeholder="Product Name" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control md:w-1/2 ml-4">
-                        <label className="label">
-                            <span className="label-text font-semibold text-base">Product image:</span>
-                        </label>
-                        <label className="input-group">
-                        <input type="url" placeholder="Photo URL" className="input input-bordered w-full"  name="image" defaultValue={image} />
-                        </label>
-                    </div>
-                </div>
-              
-                <div className="md:flex mb-8">
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text font-semibold text-base">Brand Name:</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="brand" defaultValue = {brand} placeholder="Brand Name" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    
-                    <div className="form-control ml-4 md:w-1/2">
-                        <label className="label">
-                            <span className="label-text font-semibold text-base">Product Type:</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="type" defaultValue={type} placeholder="Product type" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                   
-                </div>
-    
-                <div className="md:flex mb-8">
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text font-semibold text-base">Price:</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="price" defaultValue ={price}  placeholder="price" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control md:w-1/2 ml-4">
-                        <label className="label">
-                            <span className="label-text font-semibold text-base">Rating:</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="rating" defaultValue ={rating}  placeholder="rating" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                </div>
-            
-                
-                <div className="text-center text-xl rounded-lg bg-[#f89233] w-40 h-8 text-white lg:ml-60 lg:w-96 xl:ml-96">
-                <button >Submit</button>
-                </div>
+           
 
-            </form>
-        </div>  
+        <div className="flex justify-center items-center min-h-screen bg-gray-100 mt-32 dark:bg-slate-700 ">
+  <form onSubmit={handleUpdate}  id="productForm" className="bg-orange-100  rounded-lg p-6 w-full max-w-2xl lg:max-w-4xl xl:max-w-6xl my-10 lg:my-14 shadow-slate-700 shadow-inner dark:bg-slate-300">
+    <h2 className="text-2xl lg:text-4xl font-bold text-orange-600 mb-6 text-center mt-8 dark:text-black ">Update Product: <span className="text-cyan-600 dark:text-orange-600">{name}</span></h2>
+
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-14 lg:mt-20 mx-4 ">
+      {/* Product Name */}
+      <div className="mb-4">
+        <label htmlFor="productName" className="block text-base  font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black">Product Name</label>
+        <input
+          type="text"
+          name="name"
+          defaultValue = {name}
+          id="productName"
+          placeholder="Enter product name"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 dark:focus:ring-slate-900 focus:outline-none"
+        />
+      </div>
+
+      {/* Photo URL */}
+      <div className="mb-4">
+        <label htmlFor="photoURL" className="block text-base font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black">Photo Image</label>
+        <input
+          type="url"
+          name="image"
+          defaultValue={image}
+          id="photoURL"
+          placeholder="Enter photo URL"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 dark:focus:ring-slate-900 focus:outline-none"
+        />
+      </div>
+
+      {/* Brand Name */}
+      <div className="mb-4">
+        <label htmlFor="brandName" className="block text-base font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black">Brand Name</label>
+        <input
+          type="text"
+          name="brand"
+          defaultValue = {brand}
+          id="brandName"
+          placeholder="Enter brand name"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 dark:focus:ring-slate-900   focus:outline-none"
+        />
+      </div>
+
+      {/* Brand URL */}
+      <div className="mb-4">
+        <label htmlFor="brandURL" className="block text-base font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black">Brand Image</label>
+        <input
+          type="url"
+          name="photo"
+          defaultValue={photo}
+          id="brandURL"
+          placeholder="Enter brand URL"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 dark:focus:ring-slate-900 focus:outline-none"
+        />
+      </div>
+
+      {/* Product Type */}
+      <div className="mb-4">
+        <label htmlFor="productType" className="block text-base font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black">Product Type</label>
+        <input
+          type="text"
+          name="type"
+          defaultValue={type}
+          id="productType"
+          placeholder="Enter product type"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 dark:focus:ring-slate-900 focus:outline-none"
+        />
+      </div>
+       {/* Price */}
+       <div className="mb-4">
+        <label htmlFor="price" className="block text-base font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black">Price</label>
+        <input
+          type="number"
+          name="price"
+          defaultValue ={price}
+          id="price"
+          placeholder="Enter price"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500  dark:focus:ring-slate-900 focus:outline-none"
+        />
+      </div>
+
+       {/* Rating */}
+       <div className="mb-4">
+        <label htmlFor="rating" className="block text-base font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black">Rating</label>
+        <input
+          type="number"
+          name="rating"
+          defaultValue ={rating} 
+          id="rating"
+          placeholder="Enter rating (e.g., 4.5)"
+          step="0.1"
+          max="5"
+          min="0"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 dark:focus:ring-slate-900  focus:outline-none"
+        />
+      </div>
+
+      {/* Short Description */}
+      <div className="mb-4 lg:col-span-2">
+        <label htmlFor="shortDescription" className="block text-base font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black ">Short Description</label>
+        <textarea
+          id="shortDescription"
+          type="text"
+          name="details"
+          defaultValue ={details}
+          placeholder="Enter short description"
+          rows="3"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 dark:focus:ring-slate-900 focus:outline-none"
+        ></textarea>
+      </div>
+
+     
+
+     
+    </div>
+
+    {/* Add Button */}
+    <div className="mt-6 mb-4 text-center">
+      <button
+        type="submit"
+        className="w-60 lg:w-7/12 text-xl bg-gradient-to-r from-orange-300 to-orange-600 dark:from-gray-300 dark:to-gray-700 text-slate-100 font-semibold py-4 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-110   dark:text-zinc-950"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+
+
         </div>
     );
 };

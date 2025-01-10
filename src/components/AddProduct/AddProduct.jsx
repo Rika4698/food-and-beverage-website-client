@@ -38,99 +38,142 @@ const AddProduct = () => {
                 title: 'okay!',
                 text: 'Product Added Successfully ',
                 icon:'success',
-            })
+            }).then(() => {
+              
+                document.getElementById("productForm").reset();
+              });
             }
 
         })
     }
     return (
         <div>
-             <div className="bg-[#f8e6f0] p-24">
-            <h2 className="text-4xl font-extrabold text-center text-indigo-600 underline mb-10">Add a Product</h2>
-            <form  onSubmit={handleProduct} >
-                
-                <div className="md:flex mb-8">
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text font-semibold text-base">Product Name:</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="name" placeholder="Product Name" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control md:w-1/2 ml-4">
-                        <label className="label">
-                            <span className="label-text font-semibold text-base">Product image:</span>
-                        </label>
-                        <label className="input-group">
-                        <input type="url" placeholder="Photo URL" className="input input-bordered w-full"  name="image" />
-                        </label>
-                    </div>
-                </div>
-              
-                <div className="md:flex mb-8">
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text font-semibold text-base">Brand Name:</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="brand" placeholder="Brand Name" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control md:w-1/2 ml-4">
-                    <label className="label">
-                            <span className="label-text font-semibold text-base">Brand image:</span>
-                        </label>
-                        <label className="input-group">
-                        <input type="url" placeholder="Photo URL" className="input input-bordered w-full"  name="photo" />
-                        </label>
-                    </div>
-                </div>
-            
-                <div className="md:flex mb-8">
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text font-semibold text-base">Product Type:</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="type" placeholder="Product type" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control md:w-1/2 ml-4">
-                        <label className="label">
-                            <span className="label-text font-semibold text-base">Short description:</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="details" placeholder=" Short Details" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                </div>
-                <div className="md:flex mb-8">
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text font-semibold text-base">Price:</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="price" placeholder="price" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control md:w-1/2 ml-4">
-                        <label className="label">
-                            <span className="label-text font-semibold text-base">Rating:</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="rating" placeholder="rating" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                </div>
-            
-                
-                <div className="text-center text-xl rounded-lg bg-green-800 w-40 h-8 text-white lg:ml-60 lg:w-96 xl:ml-96">
-                <button >Add Button</button>
-                </div>
+          
 
-            </form>
-        </div> 
+        
+
+
+<div className="flex justify-center items-center min-h-screen bg-gray-100 mt-32 dark:bg-slate-700 ">
+  <form onSubmit={handleProduct} id="productForm" className="bg-purple-200  rounded-lg p-6 w-full max-w-2xl lg:max-w-4xl xl:max-w-6xl my-10 lg:my-14 shadow-slate-700 shadow-inner dark:bg-slate-400">
+    <h2 className="text-4xl font-bold text-purple-600 mb-6 text-center mt-8 dark:text-black ">Add Product</h2>
+
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-16 mx-4 ">
+      {/* Product Name */}
+      <div className="mb-4">
+        <label htmlFor="productName" className="block text-base  font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black">Product Name</label>
+        <input
+          type="text"
+          name="name"
+          id="productName"
+          placeholder="Enter product name"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 dark:focus:ring-slate-900 focus:outline-none"
+        />
+      </div>
+
+      {/* Photo URL */}
+      <div className="mb-4">
+        <label htmlFor="photoURL" className="block text-base font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black">Photo Image</label>
+        <input
+          type="url"
+          name="image"
+          id="photoURL"
+          placeholder="Enter photo URL"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 dark:focus:ring-slate-900 focus:outline-none"
+        />
+      </div>
+
+      {/* Brand Name */}
+      <div className="mb-4">
+        <label htmlFor="brandName" className="block text-base font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black">Brand Name</label>
+        <input
+          type="text"
+          name="brand"
+          id="brandName"
+          placeholder="Enter brand name"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 dark:focus:ring-slate-900   focus:outline-none"
+        />
+      </div>
+
+      {/* Brand URL */}
+      <div className="mb-4">
+        <label htmlFor="brandURL" className="block text-base font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black">Brand Image</label>
+        <input
+          type="url"
+          name="photo"
+          id="brandURL"
+          placeholder="Enter brand URL"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 dark:focus:ring-slate-900 focus:outline-none"
+        />
+      </div>
+
+      {/* Product Type */}
+      <div className="mb-4">
+        <label htmlFor="productType" className="block text-base font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black">Product Type</label>
+        <input
+          type="text"
+          name="type"
+          id="productType"
+          placeholder="Enter product type"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 dark:focus:ring-slate-900 focus:outline-none"
+        />
+      </div>
+       {/* Price */}
+       <div className="mb-4">
+        <label htmlFor="price" className="block text-base font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black">Price</label>
+        <input
+          type="number"
+          name="price"
+          id="price"
+          placeholder="Enter price"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500  dark:focus:ring-slate-900 focus:outline-none"
+        />
+      </div>
+
+       {/* Rating */}
+       <div className="mb-4">
+        <label htmlFor="rating" className="block text-base font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black">Rating</label>
+        <input
+          type="number"
+          name="rating"
+          id="rating"
+          placeholder="Enter rating (e.g., 4.5)"
+          step="0.1"
+          max="5"
+          min="0"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 dark:focus:ring-slate-900  focus:outline-none"
+        />
+      </div>
+
+      {/* Short Description */}
+      <div className="mb-4 lg:col-span-2">
+        <label htmlFor="shortDescription" className="block text-base font-semibold text-gray-600 mb-2 lg:text-xl dark:text-black ">Short Description</label>
+        <textarea
+          id="shortDescription"
+          type="text"
+          name="details"
+          placeholder="Enter short description"
+          rows="3"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 dark:focus:ring-slate-900 focus:outline-none"
+        ></textarea>
+      </div>
+
+     
+
+     
+    </div>
+
+    {/* Add Button */}
+    <div className="mt-6 mb-4 text-center">
+      <button
+        type="submit"
+        className="w-60 lg:w-7/12 text-lg rgb-button text-slate-600 font-bold py-4 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-110   dark:text-zinc-950"
+      >
+        Add Product
+      </button>
+    </div>
+  </form>
+</div>
+
         </div>
     );
 };

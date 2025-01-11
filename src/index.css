@@ -97,60 +97,27 @@ body{
                 50% { background-position: 100% 50%; }
                 100% { background-position: 0% 50%; }
             }
-
-            /* @keyframes slide {
-                0% {
-                  transform: translateX(0%);
-                }
-                20% {
-                  transform: translateX(0%);
-                }
-                25% {
-                  transform: translateX(-100%);
-                }
-                45% {
-                  transform: translateX(-100%);
-                }
-                50% {
-                  transform: translateX(-200%);
-                }
-                70% {
-                  transform: translateX(-200%);
-                }
-                75% {
-                  transform: translateX(0%);
-                }
-                100% {
-                  transform: translateX(0%);
-                }
-              } */
-              @keyframes slide {
-                0% {
-                  transform: translateX(0%); /* Show Slide 1 */
-                }
-                33.33% {
-                  transform: translateX(0%); /* Keep showing Slide 1 */
-                }
-                40% {
-                  transform: translateX(-100%); /* Transition to Slide 2 */
-                }
-                73.33% {
-                  transform: translateX(-100%); /* Keep showing Slide 2 */
-                }
-                80% {
-                  transform: translateX(-200%); /* Transition to Slide 3 */
-                }
-                100% {
-                  transform: translateX(-200%); /* Keep showing Slide 3 */
-                }
-              }
-          
-              .carousel {
-                display: flex;
-                animation: slide 11s infinite;
-              }
-          
-              .carousel-item {
-                flex: 0 0 100%;
-              }
+            /* .swiper {
+              width: 100%;
+              height: 100%;
+            } */
             
+            .swiper-slide {
+              text-align: center;
+              font-size: 18px;
+              background: #fff;
+            
+              /* Center slide text vertically */
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            
+            /* .swiper-slide img {
+              /* display: block; */
+              /* width: 100%;
+              height: 100%; */
+              /* object-fit: cover; */
+            
+            
+           

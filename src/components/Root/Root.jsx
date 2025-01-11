@@ -4,7 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
 import ScrollToTop from "../Section/ScrollToTop";
-
+import 'swiper/swiper-bundle.css';
 
 const Root = () => {
     const [isLoading, setIsLoading] = useState(true);

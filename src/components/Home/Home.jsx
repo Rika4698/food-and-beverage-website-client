@@ -65,16 +65,31 @@ const Home = () => {
     return (
         <div>
           <Banner></Banner>
-          <div className="dark:bg-black ">
-          <h1 className="font-bold text-4xl text-purple-800 text-center pt-8 underline ">Well Known Brands</h1>
-          <div className="grid grid-cols-1 ml-16 pb-12 pt-20   md:grid-cols-2  lg:grid-cols-3  mr-6 gap-8">
-          {/* {topBrands.map(([brandName, { photo, rating }]) => (
+          <div className="bg-teal-100 dark:bg-slate-800 py-8 ">
+          <h1 className="font-bold text-4xl text-teal-800 text-center pt-8 underline mb-8 dark:text-teal-300 ">Well Known Brands</h1>
+          
+          <div className="p-1 flex flex-wrap items-center justify-center">
+
+          {topBrands.map(([brandName, { photo }]) => (
           <div key={brandName} className="brand-item">
-            <img src={photo} alt={brandName} />
-            <p>{brandName}</p>
-            <p>Rating: {rating}</p>
+           <Brand photo={photo} brand={brandName}></Brand>
           </div>
-        ))} */}
+        ))}
+
+
+
+
+
+</div>
+
+
+
+
+          {/* <div className="grid grid-cols-1 ml-16 pb-12 pt-20   md:grid-cols-2  lg:grid-cols-3  mr-6 gap-8">
+        
+
+
+
           {topBrands.map(([brandName, { photo }]) => (
           <div key={brandName} className="brand-item">
            <Brand photo={photo} brand={brandName}></Brand>
@@ -83,23 +98,39 @@ const Home = () => {
        
 
 
-          {/* {
-            product.slice().map(products =><Brand key={products._id} products={products}></Brand>
-             )
-             
-            } */}
-          </div>
+         
+          </div> */}
       
           </div>
-          <div className="dark:bg-black ">
-          <h1 className="font-bold text-4xl text-purple-800 text-center pt-8  underline ">Top Products</h1>
-          <div className="grid grid-cols-1 ml-16 pb-12 pt-20   md:grid-cols-2  lg:grid-cols-3  mr-6 gap-8">
+          <div className="bg-purple-200 dark:bg-gray-900 ">
+          <h1 className="font-bold text-5xl text-purple-800 dark:text-purple-400 text-center pt-8  ">Top Products</h1>
+
+          <div className=" w-screen p-8 sm:p-16 dark:bg-gray-900">
+  
+  <div className="mx-auto w-fit grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-6">
+  {
+            topProducts.slice(0,6).map(tops =><Top key={tops._id} tops={tops}></Top>
+             )
+             
+            }
+  
+ 
+ 
+
+  </div>
+</div>
+          
+          
+          {/* <div className="grid grid-cols-1 ml-16 pb-12 pt-20   md:grid-cols-2  lg:grid-cols-3  mr-6 gap-8">
+         
+
+
           {
             topProducts.slice(0,6).map(tops =><Top key={tops._id} tops={tops}></Top>
              )
              
             }
-          </div>
+          </div> */}
       
           </div>
 

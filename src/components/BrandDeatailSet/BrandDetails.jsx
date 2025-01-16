@@ -37,18 +37,19 @@ const BrandDetails = ({carts}) => {
 
 
 
-<div className="rounded overflow-hidden  shadow-lg shadow-slate-500 dark:shadow-slate-400 flex flex-col ">
+<div className="rounded-lg overflow-hidden hover:border-2 border-slate-400   shadow-lg  flex flex-col ">
             
             <div className="relative">
                     <img className="w-full  max-h-[300px]"
-                        src={image}/>
+                        src={image || '/default-avatar.png'} alt="Image"
+                        onError={(e) => (e.target.src = '/default-avatar.png') }/>
                     <div
                         className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-200 opacity-25">
                     </div>
                
               
                     <div
-                        className="text-xs absolute top-0 right-0 bg-indigo-600 px-4 py-2 text-white mt-3 mr-3 hover:bg-white font-semibold hover:text-indigo-600 transition duration-500 ease-in-out">
+                        className="text-xs absolute top-0 right-0 bg-teal-600 px-4 py-2 text-white mt-3 mr-3 hover:bg-white font-semibold hover:text-teal-600 transition duration-500 ease-in-out">
                        {brand}
                     </div>
                
@@ -66,7 +67,7 @@ const BrandDetails = ({carts}) => {
           <span className="ml-2 text-gray-600 text-base dark:text-gray-300">({rating})</span>
         </div>
             </div>
-            <div className="px-3 py-3 flex  items-center justify-between bg-gray-100 dark:bg-gray-400  gap-8">
+            <div className="px-3 py-3 flex  items-center justify-between bg-gray-200 dark:bg-gray-400  gap-8">
             <Link to={`/details/${_id}`} className=" flex-1 bg-gradient-to-b from-sky-200 to-blue-900 rounded-full shadow-md shadow-black/50 hover:outline hover:outline-blue-800 focus:outline focus:outline-blue-800 transition-all duration-100 active:from-black active:to-zinc-800 active:translate-y-px py-2 text-center">
     {/* <button
       className="  bg-gradient-to-b from-sky-300 to-sky-600 rounded-full shadow-md shadow-black/50 hover:outline hover:outline-sky-500 focus:outline focus:outline-sky-500 transition-all duration-100 active:from-black active:to-zinc-800 active:translate-y-px py-2 border border-black"

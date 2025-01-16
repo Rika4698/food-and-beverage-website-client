@@ -395,3 +395,159 @@
   </div> 
  
 </div> */}
+
+
+  // useEffect(() => {
+    //     fetchComments();
+    // }, [_id]);
+
+   
+    
+    //   const fetchComments = async () => {
+    //     try {
+    //         const response = await axiosSecure.get(`/cartComments/${_id}`);
+    //         setComments(response.data);
+    //     } catch (error) {
+    //         console.error('Error fetching comments:', error);
+    //     }
+    // };
+
+    // useEffect(() => {
+    //     fetchComments();
+    //   }, []);
+    
+    //   const handleCommentChange = (event) => {
+    //     setComment(event.target.value);
+    //   };
+    
+    //   const handleComment =   async (e) => {
+    //     e.preventDefault();
+    //     try {
+    //         await axiosSecure.put(`/cartCommentUpdate/${_id}?comment=${comment}`);
+    //         setComment(''); // Clear the input field after submitting
+    //         fetchComments(); // Fetch the updated comments
+    //         swal({
+    //             position: "top-end",
+    //             icon: "success",
+    //             title: "Comment added successfully",
+    //             showConfirmButton: false,
+    //             timer: 1500,
+                
+               
+    //         });
+    //     } catch (error) {
+    //         console.error("Error adding comment:", error);
+    //         swal({
+    //             icon: 'error',
+    //             title: 'Oops...',
+    //             text: 'Something went wrong while adding comment. Please try again later.',
+    //         });
+    //     }
+    // };
+
+
+    // <div className="mt-[124px] lg:mt-[150px]">
+    //             {/* Product details section */}
+    //             <div className="bg-gray-100 dark:bg-slate-700">
+    //                 {/* Existing product details JSX */}
+    //             </div>
+                
+    //             {/* Comments section */}
+    //             <div className="w-[340px] md:w-[496px] lg:w-[700px] mx-auto my-10 bg-indigo-300 rounded-lg shadow-2xl">
+    //                 <div className="card-body">
+    //                     <h2 className="card-title text-3xl text-lime-700 font-bold">
+    //                         All Comments
+    //                     </h2>
+                        
+    //                     <div className="w-full h-80 bg-purple-200 rounded-lg overflow-y-auto overflow-x-hidden">
+    //                         {isLoading ? (
+    //                             <div className="flex justify-center items-center h-full">
+    //                                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+    //                             </div>
+    //                         ) : error ? (
+    //                             <div className="text-red-500 text-center p-4">{error}</div>
+    //                         ) : comments.length === 0 ? (
+    //                             <div className="text-gray-500 text-center p-4">No comments yet. Be the first to comment!</div>
+    //                         ) : (
+    //                             <div className="p-4 space-y-4">
+    //                                 {comments.map((commentItem) => (
+    //                                     <div key={commentItem._id} className="bg-white rounded-lg p-4 shadow">
+    //                                         <div className="flex items-center justify-between">
+    //                                             <div className="flex items-center space-x-3">
+    //                                                 <img
+    //                                                     src={commentItem.userPhoto}
+    //                                                     alt={commentItem.userName}
+    //                                                     className="w-10 h-10 rounded-full object-cover"
+    //                                                     onError={(e) => {
+    //                                                         e.target.src = '/default-avatar.png';
+    //                                                     }}
+    //                                                 />
+    //                                                 <div>
+    //                                                     <h4 className="font-semibold">{commentItem.userName}</h4>
+    //                                                     <p className="text-sm text-gray-500">
+    //                                                         {new Date(commentItem.timestamp).toLocaleString('en-US', {
+    //                                                             weekday: 'short',
+    //                                                             year: 'numeric',
+    //                                                             month: 'short',
+    //                                                             day: 'numeric',
+    //                                                             hour: '2-digit',
+    //                                                             minute: '2-digit',
+    //                                                             second: '2-digit'
+    //                                                         })
+    //                                                         }
+    //                                                     </p>
+    //                                                 </div>
+    //                                             </div>
+    //                                             {user?.email === commentItem.userEmail && (
+    //                                                 <button
+    //                                                     onClick={() => handleDeleteComment(commentItem._id)}
+    //                                                     className="text-red-500 hover:text-red-700 transition-colors"
+    //                                                     title="Delete comment"
+    //                                                 >
+    //                                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+    //                                                         <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+    //                                                     </svg>
+    //                                                     <LuDelete />
+    //                                                 </button>
+    //                                             )}
+    //                                         </div>
+    //                                         <h3 className="mt-2 text-gray-700 break-words">{commentItem.text}</h3>
+    //                                     </div>
+    //                                 ))}
+    //                             </div>
+    //                         )}
+    //                     </div>
+                        
+    //                     {user ? (
+    //                         <form onSubmit={handleComment} className="mt-4">
+    //                             <div className="flex gap-2">
+    //                                 <input
+    //                                     type="text"
+    //                                     placeholder="Write a comment..."
+    //                                     value={comment}
+    //                                     onChange={(e) => setComment(e.target.value)}
+    //                                     className="input input-bordered w-full"
+    //                                 />
+    //                                 <button
+    //                                     type="submit"
+    //                                     disabled={!comment.trim()}
+    //                                     className={`px-4 py-2 rounded-lg font-semibold text-white transition-colors ${
+    //                                         comment.trim() 
+    //                                             ? 'bg-emerald-500 hover:bg-emerald-600' 
+    //                                             : 'bg-gray-400 cursor-not-allowed'
+    //                                     }`}
+    //                                 >
+    //                                     Comment
+    //                                 </button>
+    //                             </div>
+    //                         </form>
+    //                     ) : (
+    //                         <div className="text-center mt-4 p-4 bg-gray-100 rounded-lg">
+    //                             <p className="text-gray-600">
+    //                                 Please <a href="/login" className="text-blue-500 hover:underline">login</a> to add a comment
+    //                             </p>
+    //                         </div>
+    //                     )}
+    //                 </div>
+    //             </div>
+    //         </div>

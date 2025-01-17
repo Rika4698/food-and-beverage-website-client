@@ -13,7 +13,13 @@ const Register = () => {
 
     const handleGoogleAccount = () => {
         googleSignIn().then ((result) => {
-            console.log(result.user);
+            // console.log(result.user);
+            swal({
+            
+              text: "Login done successfully",
+              icon: "success",
+              
+            })
             navigate(location?.state?location.state :'/' )
         })
         .catch(error => {
@@ -79,12 +85,12 @@ const Register = () => {
     };
 
     return (
-        <div>
+        <div className=" dark:bg-slate-600  py-4 mt-28 lg:mt-36">
              
-          <div className=" bg-base-200 ">
+          <div className=" bg-base-200 dark:bg-slate-600 ">
   <div className="hero-content flex-col lg:flex">
     
-    <div className="card  w-full max-w-sm lg:w-[500px] min-h-[500px] shadow-2xl bg-base-100">
+    <div className="card  w-full max-w-sm lg:w-[500px] min-h-[500px] shadow-2xl bg-base-100 dark:bg-slate-300">
     <div className="text-center mt-8">
       <h1 className="text-3xl font-bold text-blue-900">Registration Form</h1>
      <p className="mt-4">Enter your details to registration</p>

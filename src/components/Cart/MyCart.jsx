@@ -93,7 +93,7 @@ const MyCart = () => {
 
         swal({
             title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            text: "You won't be able to return this!",
             icon: 'warning',
             buttons: {
                 

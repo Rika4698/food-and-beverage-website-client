@@ -5,6 +5,7 @@ import Certification from "../Certification/Certification";
 import Section from "../Section/Section";
 
 import Top from "./Top Pro/ZTop Pro";
+import { useEffect, useState } from "react";
 
 
 const getTopBrands = (product) => {
@@ -61,7 +62,32 @@ const Home = () => {
     
     const topProducts = product.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
     
-    console.log(topBrands);
+    // console.log(topBrands);
+    const [isVisible, setIsVisible] = useState(false);
+
+  // Toggle visibility of the button based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Function to scroll to the top
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
     return (
         <div>
           <Banner></Banner>
@@ -102,10 +128,10 @@ const Home = () => {
           </div> */}
       
           </div>
-          <div className="bg-purple-200 dark:bg-gray-900 ">
+          <div className="bg-purple-200 dark:bg-slate-800 ">
           <h1 className="font-bold text-5xl text-purple-800 dark:text-purple-400 text-center pt-8  ">Top Products</h1>
 
-          <div className=" w-screen p-8 sm:p-16 dark:bg-gray-900">
+          <div className=" w-screen p-8 sm:p-16 dark:bg-slate-800 ">
   
   <div className="mx-auto w-fit grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-6">
   {
@@ -136,6 +162,23 @@ const Home = () => {
 
           <Section></Section>
           <Certification></Certification>
+          <button
+      onClick={goToTop}
+      title="Go To Top"
+      className={`${
+        isVisible ? 'block' : 'hidden'
+      } fixed z-50 bottom-10 right-10 p-4 border-0 w-14 h-14 rounded-full shadow-md bg-blue-500 hover:bg-blue-700 text-white text-lg font-semibold transition-colors duration-300 dark:bg-white dark:hover:bg-gray-300 dark:text-black`}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="w-6 h-6"
+      >
+        <path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" />
+      </svg>
+      <span className="sr-only">Go to top</span>
+    </button>
           
         </div>
     );

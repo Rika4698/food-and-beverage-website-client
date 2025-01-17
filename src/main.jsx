@@ -28,6 +28,7 @@ import {
   QueryClientProvider,
  
 } from '@tanstack/react-query'
+import About from './components/Section/About';
 const queryClient = new QueryClient();
 
 
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
   {
     path:'/contact',
     element:<Contact></Contact>,
+  },
+  {
+    path:'/about',
+    element:<About></About>,
   },
   {
     path:'/login',

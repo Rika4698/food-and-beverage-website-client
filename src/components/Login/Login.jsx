@@ -15,6 +15,12 @@ const Login = () => {
     const {googleSignIn} = useContext(AuthContext);
     const handleGoogleAccount = () => {
         googleSignIn().then ((result) => {
+          swal({
+            
+            text: "Login done successfully",
+            icon: "success",
+            
+          })
             console.log(result.user);
              navigate(location?.state?location.state :'/' )
         })
@@ -62,10 +68,10 @@ const Login = () => {
     return (
         <div>
             
-           <div className="  pb-2">
+           <div className="  dark:bg-slate-600 py-4 mt-32 lg:mt-36">
   <div className="hero-content ">
     
-    <div className="card max-w-sm w-full  bg-slate-100">
+    <div className="card max-w-sm w-full  bg-slate-100 dark:bg-slate-300">
     <div className="text-center mt-8">
       <h1 className="text-3xl font-bold text-blue-900">Login Now</h1>
      <p className="mt-4">Enter your details to login</p>
